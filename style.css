@@ -1,0 +1,174 @@
+/* Reset CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+ 
+.container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center; /* Căn giữa theo chiều ngang  */
+}
+ 
+.containers:before {
+  display: inline-block;  
+  content: ""; 
+  height: 100%; 
+  vertical-align: middle;  
+}
+
+.wrapper {
+  width: 710px;
+  height: 780px;
+  display: inline-block;
+}
+
+.chess_board {
+  background: url("./images/chess_board.png") center no-repeat;
+  background-size: contain;
+
+  position: relative;
+  width: 97%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.chess_info {
+  position: absolute;
+  top: 50%;
+  left: -17rem;
+  transform: translateY(-50%);
+  & p {
+    line-height: 2rem;
+    font-size: 1.6rem;
+  }
+}
+.chess_background {
+  --color: #bbf4ff;
+  --opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  opacity: var(--opacity);
+  background-color: var(--color);
+  outline: 1.5rem solid var(--color);
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  border: none;
+  color: white;
+  margin: 0.5rem;
+  opacity: 0.5;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn-green {
+  background-color: rgb(21, 155, 0);
+}
+.btn-red {
+  background-color: rgb(250, 1, 1);
+}
+
+.chess_background,
+.chess {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.chess,
+.marker {
+  position: absolute;
+  cursor: pointer;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  line-height: 55px;
+  font-size: 32px;
+  left: 8px;
+  top: 11px;
+  text-align: center;
+  vertical-align: middle;
+  background: wheat;
+  text-shadow: 0 0 1px; 
+}
+
+.chess.darkblue {
+  color: darkblue;
+}
+
+.chess.red {
+  color: red;
+}
+
+.chess.red.active {
+  --color: rgba(249, 23, 23, 0.811);
+}
+.chess.darkblue.active {
+  --color: rgba(24, 88, 249, 0.8);
+}
+
+.chess.darkblue.active,
+.chess.red.active {
+  outline: solid 10px transparent;
+  animation: flashing 1s linear 0s infinite;
+}
+
+.marker {
+  --color: rgb(0, 255, 0);
+  transform: scale(0.7);
+  z-index: 10;
+  background-color: var(--color);
+  animation: fading 2s linear 0s infinite;
+}
+ 
+@keyframes flashing {
+  0% {
+    outline-color: var(--color);
+  }
+  33.33% {
+    outline-color: transparent;
+  }
+  66.66% {
+    outline-color: var(--color);
+  }
+  100% {
+    outline-color: transparent;
+  }
+}
+@keyframes fading {
+  0% {
+    background-color: var(--color);
+  }
+  50% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--color);
+  }
+}
+
+.text-warning {
+  color: red;
+  position: absolute;
+  font-size: 1.1rem !important;
+  text-align: left;
+}
