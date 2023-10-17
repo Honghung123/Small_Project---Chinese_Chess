@@ -1,4 +1,4 @@
-# Chinese_Chess_using_JQuery_-_JQueryUI
+# Chinese Chess using JQuery & JQueryUI
 
 ## Technical
 - HTML
